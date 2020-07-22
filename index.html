@@ -79,23 +79,11 @@
 
         // Deposit button event handler
         document.getElementById('depositBtn').addEventListener('click', () => {
-            // const depositAmount = document.getElementById('depositAmount').value;
-            // const depositNum = parseFloat(depositAmount);
-            // console.log(depositNum);
+            // Getting deposit amount
             const depositNum = getInputNum('depositAmount')
 
-            // const currentDeposit = document.getElementById('currentDeposit').innerText;
-            // const currentDepositNum = parseFloat(currentDeposit);
-            // const totalDeposit = currentDepositNum + depositNum;
-            // console.log(totalDeposit);
-            // document.getElementById('currentDeposit').innerText = totalDeposit;
+            // Updating deposit and balance
             updateSpanText("currentDeposit", depositNum);
-
-            // const currentBalance = document.getElementById('currentBalance').innerText;
-            // const currentBalanceNum = parseFloat(currentBalance);
-            // const totalBalance = currentBalanceNum + depositNum;
-            // console.log(totalBalance);
-            // document.getElementById('currentBalance').innerText = totalBalance;
             updateSpanText("currentBalance", depositNum);
 
             document.getElementById('depositAmount').value = '';
@@ -103,38 +91,30 @@
 
         // Withdraw button event handler
         document.getElementById('withdrawBtn').addEventListener('click', () => {
-            // const withdrawAmount = document.getElementById('withdrawAmount').value;
-            // const withdrawNum = parseFloat(withdrawAmount);
-            // console.log(withdrawNum);
+            // Getting withdraw amount
             const withdrawNum = getInputNum('withdrawAmount');
 
+            // Updating withdraw and balance
             updateSpanText("currentWithdraw", withdrawNum);
             updateSpanText("currentBalance", -1 * withdrawNum);
 
             document.getElementById('withdrawAmount').value = '';
         })
 
+        // Getting the input value
         function getInputNum(id) {
             const inputAmount = document.getElementById(id).value;
             const resultAmount = parseFloat(inputAmount);
             return resultAmount;
         }
 
+        // Updating the input value
         function updateSpanText(id, depositNum) {
             const current = document.getElementById(id).innerText;
             const currentNum = parseFloat(current);
             const totalAmount = currentNum + depositNum;
             document.getElementById(id).innerText = totalAmount;
         }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
 </body>
 

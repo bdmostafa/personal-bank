@@ -28,19 +28,19 @@
             <div class="col-md-4">
                 <div class="deposit box">
                     <h4>Deposit</h4>
-                    <h2>$0.00</h2>
+                    <h2>$ <span id="currentDeposit">0.00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="withdraw box">
                     <h4>Withdraw</h4>
-                    <h2>$0.00</h2>
+                    <h2>$ <span id="currentWithdraw">0.00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="balance box">
                     <h4>Balance</h4>
-                    <h2>$0.00</h2>
+                    <h2>$ <span id="currentBalance">0.00</span> </h2>
                 </div>
             </div>
         </div>
@@ -49,27 +49,49 @@
                 <div class="submit-area">
                     <h4>Deposit</h4>
                     <br>
-                    <input type="number" name="" id="" class="form-control" placeholder="$ Enter deposit amount">
+                    <input id="depositAmount" type="number" name="" id="" class="form-control"
+                        placeholder="$ Enter deposit amount">
                     <br>
-                    <button class="btn btn-success">Deposit</button>
+                    <button id="depositBtn" class="btn btn-success">Deposit</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Withdraw</h4>
                     <br>
-                    <input type="number" name="" id="" class="form-control" placeholder="Enter withdraw amount">
+                    <input id="withdrawAmount" type="number" name="" id="" class="form-control"
+                        placeholder="Enter withdraw amount">
                     <br>
-                    <button class="btn btn-success">Withdraw</button>
+                    <button id="withdrawBtn" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        document.getElementById('login').addEventListener('click', function () {
-            document.getElementById('login-area').style.display = 'none';
-            document.getElementById('dashboard-area').style.display = 'block';
+        // Login button event handler
+        const loginBtn = document.getElementById('login').addEventListener('click', function () {
+            const loginArea = document.getElementById('login-area');
+            loginArea.style.display = 'none';
+            const transactionArea = document.getElementById('dashboard-area');
+            transactionArea.style.display = 'block';
+        })
+
+        // Deposit button event handler
+        document.getElementById('depositBtn').addEventListener('click', () => {
+            const depositAmount = document.getElementById('depositAmount').value;
+            const depositNum = parseFloat(depositAmount);
+            // console.log(depositNum);
+
+            const currentDeposit = document.getElementById('currentDeposit').innerText;
+            const currentDepositNum = parseFloat(currentDeposit);
+            const totalDeposit = currentDepositNum + depositNum;
+            // console.log(totalDeposit);
+
+            document.getElementById('currentDeposit').innerText = totalDeposit;
+            document.getElementById('depositAmount').value = '';
+
+
         })
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

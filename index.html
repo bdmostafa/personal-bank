@@ -83,24 +83,31 @@
             const depositNum = parseFloat(depositAmount);
             // console.log(depositNum);
 
-            const currentDeposit = document.getElementById('currentDeposit').innerText;
-            const currentDepositNum = parseFloat(currentDeposit);
-            const totalDeposit = currentDepositNum + depositNum;
-            console.log(totalDeposit);
-            document.getElementById('currentDeposit').innerText = totalDeposit;
+            // const currentDeposit = document.getElementById('currentDeposit').innerText;
+            // const currentDepositNum = parseFloat(currentDeposit);
+            // const totalDeposit = currentDepositNum + depositNum;
+            // console.log(totalDeposit);
+            // document.getElementById('currentDeposit').innerText = totalDeposit;
 
-            const currentBalance = document.getElementById('currentBalance').innerText;
-            const currentBalanceNum = parseFloat(currentBalance);
-            const totalBalance = currentBalanceNum + depositNum;
-            console.log(totalBalance);
-            document.getElementById('currentBalance').innerText = totalBalance;
+            updateSpanText("currentDeposit", depositNum);
+
+            // const currentBalance = document.getElementById('currentBalance').innerText;
+            // const currentBalanceNum = parseFloat(currentBalance);
+            // const totalBalance = currentBalanceNum + depositNum;
+            // console.log(totalBalance);
+            // document.getElementById('currentBalance').innerText = totalBalance;
+
+            updateSpanText("currentBalance", depositNum);
 
             document.getElementById('depositAmount').value = '';
-
-
-
-
         })
+
+        function updateSpanText(id, depositNum) {
+            const current = document.getElementById(id).innerText;
+            const currentNum = parseFloat(current);
+            const totalAmount = currentNum + depositNum;
+            document.getElementById(id).innerText = totalAmount;
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

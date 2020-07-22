@@ -103,16 +103,16 @@
 
         // Getting the input value
         function getInputNum(id) {
-            const inputAmount = document.getElementById(id).value;
-            const resultAmount = parseFloat(inputAmount);
+            // const inputAmount = document.getElementById(id).value;
+            const resultAmount = parseFloat(document.getElementById(id).value);
             return resultAmount;
         }
 
         // Updating the input value
         function updateSpanText(id, depositNum) {
-            const current = document.getElementById(id).innerText;
-            const currentNum = parseFloat(current);
-            const totalAmount = currentNum + depositNum;
+            // const current = document.getElementById(id).innerText;
+            // const currentNum = parseFloat(current);
+            const totalAmount = parseFloat(document.getElementById(id).innerText) + depositNum;
             document.getElementById(id).innerText = totalAmount;
         }
     </script>

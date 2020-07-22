@@ -79,16 +79,16 @@
 
         // Deposit button event handler
         document.getElementById('depositBtn').addEventListener('click', () => {
-            const depositAmount = document.getElementById('depositAmount').value;
-            const depositNum = parseFloat(depositAmount);
+            // const depositAmount = document.getElementById('depositAmount').value;
+            // const depositNum = parseFloat(depositAmount);
             // console.log(depositNum);
+            const depositNum = getInputNum('depositAmount')
 
             // const currentDeposit = document.getElementById('currentDeposit').innerText;
             // const currentDepositNum = parseFloat(currentDeposit);
             // const totalDeposit = currentDepositNum + depositNum;
             // console.log(totalDeposit);
             // document.getElementById('currentDeposit').innerText = totalDeposit;
-
             updateSpanText("currentDeposit", depositNum);
 
             // const currentBalance = document.getElementById('currentBalance').innerText;
@@ -96,11 +96,26 @@
             // const totalBalance = currentBalanceNum + depositNum;
             // console.log(totalBalance);
             // document.getElementById('currentBalance').innerText = totalBalance;
-
             updateSpanText("currentBalance", depositNum);
 
             document.getElementById('depositAmount').value = '';
         })
+
+        // Withdraw button event handler
+        document.getElementById('withdrawBtn').addEventListener('click', () => {
+            // const withdrawAmount = document.getElementById('withdrawAmount').value;
+            // const withdrawNum = parseFloat(withdrawAmount);
+            // console.log(withdrawNum);
+            const withdrawNum = getInputNum('withdrawAmount');
+
+
+        })
+
+        function getInputNum(id) {
+            const inputAmount = document.getElementById(id).value;
+            const resultAmount = parseFloat(inputAmount);
+            return resultAmount;
+        }
 
         function updateSpanText(id, depositNum) {
             const current = document.getElementById(id).innerText;

@@ -12,3 +12,22 @@ body {
 #dashboard-area {
     display: none;
 }
+
+.box {
+    margin: 25px;
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+}
+
+.deposit {
+    background-color: slateblue;
+}
+
+.withdraw {
+    background-color: lightsalmon;
+}
+
+.balance {
+    background-color: orange;
+}

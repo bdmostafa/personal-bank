@@ -108,7 +108,10 @@
             // console.log(withdrawNum);
             const withdrawNum = getInputNum('withdrawAmount');
 
+            updateSpanText("currentWithdraw", withdrawNum);
+            updateSpanText("currentBalance", -1 * withdrawNum);
 
+            document.getElementById('withdrawAmount').value = '';
         })
 
         function getInputNum(id) {
